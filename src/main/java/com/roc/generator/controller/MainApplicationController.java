@@ -47,7 +47,17 @@ public class MainApplicationController {
         final File generateFile = new File(path);
         final String generate = DirectoryTree.create(generateFile)
                 .setDeep(20)
-                .setFileFilter(pathname -> (!(pathname.isHidden() || pathname.getName().contains("java"))))
+                .setFileFilter(pathname -> (!(pathname.isHidden() ||
+                        pathname.getName().contains("Maven") ||
+                        pathname.getName().contains(".iml") ||
+                        pathname.getName().contains(".idea") ||
+                        pathname.getName().contains(".log") ||
+                        pathname.getName().contains(".prefs")||
+                        pathname.getName().contains("target")||
+                        pathname.getName().contains("assets")||
+                        pathname.getName().contains(".class")||
+                        pathname.getName().contains(".gitignore")
+                )))
                 .generate(generateFile);
         treeText.setText(generate);
     }
