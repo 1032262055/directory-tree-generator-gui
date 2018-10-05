@@ -23,24 +23,25 @@
                <children>
                   <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                              <GridPane alignment="TOP_LEFT" layoutX="5.0" layoutY="29.0" prefHeight="558.0" prefWidth="916.0" vgap="5.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="10.0">
+                              <GridPane alignment="TOP_LEFT" layoutX="5.0" layoutY="29.0" prefHeight="597.0" prefWidth="916.0" vgap="5.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="10.0">
                                   <columnConstraints>
-                                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="73.0" />
-                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="854.0" minWidth="10.0" prefWidth="781.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="845.0" minWidth="10.0" prefWidth="62.0" />
+                                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="15.0" />
+                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="885.0" minWidth="10.0" prefWidth="885.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="845.0" minWidth="10.0" prefWidth="16.0" />
                               <ColumnConstraints />
                               <ColumnConstraints />
                               <ColumnConstraints />
                                   </columnConstraints>
                                   <rowConstraints>
-                                      <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
-                                      <RowConstraints maxHeight="515.0" minHeight="10.0" prefHeight="515.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                                      <RowConstraints maxHeight="545.0" minHeight="10.0" prefHeight="543.0" vgrow="SOMETIMES" />
                                   </rowConstraints>
                                   <children>
-                                      <Label text="目录：" GridPane.rowIndex="0" />
-                                      <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="690.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="0">
+                                      <!--<Label text="目录：" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
+                                      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="901.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="0">
                                           <children>
-                                              <TextField fx:id="projectFolderField" prefHeight="34.0" prefWidth="539.0" promptText="C:\workspace\test">
+                                              <Label prefHeight="22.0" prefWidth="49.0" text="目录：" />
+                                              <TextField fx:id="projectFolderField" prefHeight="34.0" prefWidth="606.0" promptText="C:\workspace\test">
                                                   <HBox.margin>
                                                       <Insets left="5.0" right="5.0" />
                                                   </HBox.margin>
@@ -51,8 +52,8 @@
                                                       <String fx:value="btn-default" />
                                                    </styleClass>
                                               </Button>
-                                              <Label text="     " GridPane.rowIndex="1" />
-                                              <Button mnemonicParsing="false" onAction="#generateCode" text="目录树生成">
+                                              <Label text=" " GridPane.rowIndex="1" />
+                                              <Button mnemonicParsing="false" onAction="#generateCode" prefHeight="36.0" prefWidth="105.0" text="目录树生成">
                                                   <styleClass>
                                                       <String fx:value="btn-success" />
                                                       <String fx:value="btn" />
@@ -60,8 +61,8 @@
                                               </Button>
                                           </children>
                                       </HBox>
-                                      <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                          <TextArea fx:id="treeText" prefHeight="520.0" prefWidth="781.0">
+                                      <VBox prefWidth="885.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <TextArea fx:id="treeText" prefHeight="547.0" prefWidth="885.0">
                                           </TextArea>
                                       </VBox>
                                   </children>

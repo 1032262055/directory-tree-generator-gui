@@ -19,6 +19,7 @@ public class MainApplication extends Application {
         URL url = Thread.currentThread().getContextClassLoader().getResource("fxml/MainApplication.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
+        primaryStage.setTitle("目录树生成工具");
         primaryStage.setResizable(true);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
