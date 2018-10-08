@@ -3,5 +3,5 @@
 目录生成使用了
 [GourdErwa](https://github.com/GourdErwa/MyNote)提供的工具类。
 
-## 从此解放双手，解放生产力。
+## 从此解放约1%的生产力。
 
