@@ -9,6 +9,10 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import org.apache.commons.lang3.StringUtils;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.io.File;
 
 /**
@@ -52,10 +56,10 @@ public class MainApplicationController {
                         pathname.getName().contains(".iml") ||
                         pathname.getName().contains(".idea") ||
                         pathname.getName().contains(".log") ||
-                        pathname.getName().contains(".prefs")||
-                        pathname.getName().contains("target")||
-                        pathname.getName().contains("assets")||
-                        pathname.getName().contains(".class")||
+                        pathname.getName().contains(".prefs") ||
+                        pathname.getName().contains("target") ||
+                        pathname.getName().contains("assets") ||
+                        pathname.getName().contains(".class") ||
                         pathname.getName().contains(".gitignore")
                 )))
                 .generate(generateFile);
@@ -76,5 +80,15 @@ public class MainApplicationController {
             return "目录不能为空!";
         }
         return null;
+    }
+
+    @FXML
+    public void copyText() {
+        String text = treeText.getText();
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable transferable = new StringSelection(text);
+        clipboard.setContents(transferable, null);
+        //复制成功提示
+        AlertUtil.showInfoAlert("");
     }
 }

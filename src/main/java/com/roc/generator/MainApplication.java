@@ -23,7 +23,6 @@ public class MainApplication extends Application {
         primaryStage.setResizable(true);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
         MainApplicationController controller = fxmlLoader.getController();
         controller.setPrimaryStage(primaryStage);
     }
@@ -37,7 +36,7 @@ public class MainApplication extends Application {
             jFrame.setSize(500, 100);
             jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JPanel jPanel = new JPanel();
-            JLabel jLabel = new JLabel("JDK的版本不能低于1.8.0.60，请升级至最近的JDK 1.8再运行此软件");
+            JLabel jLabel = new JLabel("JDK的版本不能低于1.8.0.60 !");
             jPanel.add(jLabel);
             jFrame.add(jPanel);
             jFrame.setLocationRelativeTo(null);

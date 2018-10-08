@@ -16,4 +16,15 @@ public class AlertUtil {
         alert.setContentText(message);
         alert.show();
     }
+
+    /**
+     * 展示错误信息
+     * @param message
+     */
+    public static void showInfoAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.setHeaderText("复制成功！");
+        alert.show();
+    }
 }
