@@ -36,7 +36,7 @@ public class DirectoryTree {
     /* 文件筛选过滤器*/
     private FileFilter fileFilter = pathname -> true;
     /* 写出文件名及其他信息，默认只输出文件名称*/
-    private AppendTo displayContent = new AppendTo(file -> " " + file.getName());
+    private final AppendTo displayContent = new AppendTo(file -> " " + file.getName());
 
     private DirectoryTree() {
     }
