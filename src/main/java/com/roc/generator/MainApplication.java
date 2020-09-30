@@ -5,9 +5,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.InputStream;
 import java.net.URL;
 
 /**
@@ -20,6 +22,8 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
         primaryStage.setTitle("目录树生成工具");
+        InputStream resourceAsStream = MainApplication.class.getResourceAsStream("/image/tree.png");
+        primaryStage.getIcons().add(new Image(resourceAsStream));
         primaryStage.setResizable(true);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
