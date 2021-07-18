@@ -29,3 +29,5 @@ server-logs/
 */*.iws
 */*.iml
 */*.ipr
+
+dependency-reduced-pom.xml

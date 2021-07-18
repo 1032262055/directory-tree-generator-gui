@@ -1,85 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-
-<BorderPane prefHeight="613.0" prefWidth="918.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.roc.generator.controller.MainApplicationController">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<BorderPane prefHeight="613.0" prefWidth="918.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.roc.generator.controller.MainApplicationController">
     <center>
         <SplitPane>
             <items>
-            <AnchorPane minWidth="400.0" prefHeight="518.0" prefWidth="917.0">
-               <children>
-                  <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                              <GridPane alignment="TOP_LEFT" layoutX="5.0" layoutY="29.0" prefHeight="597.0" prefWidth="916.0" vgap="5.0" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="10.0">
-                                  <columnConstraints>
-                                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="0.0" prefWidth="15.0" />
-                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="885.0" minWidth="10.0" prefWidth="885.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="845.0" minWidth="10.0" prefWidth="16.0" />
-                              <ColumnConstraints />
-                              <ColumnConstraints />
-                              <ColumnConstraints />
-                                  </columnConstraints>
-                                  <rowConstraints>
-                                      <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
-                                      <RowConstraints maxHeight="552.0" minHeight="10.0" prefHeight="545.0" vgrow="SOMETIMES" />
-                                  </rowConstraints>
-                                  <children>
-                                      <!--<Label text="目录：" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
-                                      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="901.0" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="0">
-                                          <children>
-                                              <Label prefHeight="22.0" prefWidth="49.0" text="目录：" />
-                                              <TextField fx:id="projectFolderField" prefHeight="34.0" prefWidth="606.0" promptText="C:\workspace\test">
-                                                  <HBox.margin>
-                                                      <Insets left="5.0" right="5.0" />
-                                                  </HBox.margin>
-                                              </TextField>
-                                              <Button mnemonicParsing="false" onAction="#chooseProjectFolder" text="选择文件夹">
-                                                   <styleClass>
-                                                      <String fx:value="btn" />
-                                                      <String fx:value="btn-default" />
-                                                   </styleClass>
-                                              </Button>
-                                              <Label text=" " GridPane.rowIndex="1" />
-                                              <Button mnemonicParsing="false" onAction="#generateCode" prefHeight="36.0" prefWidth="105.0" text="目录树生成">
-                                                  <styleClass>
-                                                      <String fx:value="btn-success" />
-                                                      <String fx:value="btn" />
-                                                  </styleClass>
-                                              </Button>
-                                          </children>
-                                      </HBox>
-                                      <VBox prefWidth="885.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                          <Button onAction="#copyText" prefHeight="26.0" prefWidth="56.0" text="复制">
-                                              <styleClass>
-                                                  <String fx:value="btn-success" />
-                                                  <String fx:value="btn" />
-                                              </styleClass>
-                                    <padding>
-                                       <Insets top="1.0" />
-                                    </padding>
-                                          </Button>
-                                          <TextArea fx:id="treeText" prefHeight="547.0" prefWidth="885.0">
-                                          </TextArea>
-                                      </VBox>
-                                  </children>
-                              </GridPane>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
+                <AnchorPane minWidth="400.0" prefHeight="518.0" prefWidth="917.0">
+                    <children>
+                        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                              AnchorPane.topAnchor="0.0">
+                            <children>
+                                <GridPane alignment="TOP_LEFT" layoutX="5.0" layoutY="29.0" prefHeight="597.0"
+                                          prefWidth="916.0" vgap="5.0" AnchorPane.leftAnchor="-5.0"
+                                          AnchorPane.rightAnchor="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="195.0"
+                                                           minWidth="0.0" prefWidth="15.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="885.0" minWidth="10.0"
+                                                           prefWidth="885.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="845.0" minWidth="10.0"
+                                                           prefWidth="16.0"/>
+                                        <ColumnConstraints/>
+                                        <ColumnConstraints/>
+                                        <ColumnConstraints/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="47.0"
+                                                        vgrow="SOMETIMES"/>
+                                        <RowConstraints maxHeight="552.0" minHeight="10.0" prefHeight="545.0"
+                                                        vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <!--<Label text="目录：" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
+                                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="901.0"
+                                              GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="0">
+                                            <children>
+                                                <Label prefHeight="22.0" prefWidth="49.0" text="目录："/>
+                                                <TextField fx:id="projectFolderField" prefHeight="34.0"
+                                                           prefWidth="606.0" promptText="C:\workspace\test">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" right="5.0"/>
+                                                    </HBox.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#chooseProjectFolder"
+                                                        prefHeight="20.0" prefWidth="104.0" text="选择文件夹">
+                                                    <styleClass>
+                                                        <String fx:value="btn"/>
+                                                        <String fx:value="btn-default"/>
+                                                    </styleClass>
+                                                </Button>
+                                                <Label text=" " GridPane.rowIndex="1"/>
+                                                <Button mnemonicParsing="false" onAction="#generateCode"
+                                                        prefHeight="36.0" prefWidth="105.0" text="目录树生成">
+                                                    <styleClass>
+                                                        <String fx:value="btn-success"/>
+                                                        <String fx:value="btn"/>
+                                                    </styleClass>
+                                                </Button>
+                                            </children>
+                                        </HBox>
+                                        <VBox prefWidth="885.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <HBox>
+                                                <Button onAction="#copyText" prefHeight="26.0" prefWidth="56.0"
+                                                        text="复制">
+                                                    <styleClass>
+                                                        <String fx:value="btn-success"/>
+                                                        <String fx:value="btn"/>
+                                                    </styleClass>
+                                                    <padding>
+                                                        <Insets top="1.0"/>
+                                                    </padding>
+                                                </Button>
+                                                <!--                                                onAction="#filterField"-->
+                                                <TextField onAction="#filterField" fx:id="filterTextField"
+                                                           prefHeight="34.0" prefWidth="828.0"
+                                                           promptText="请输入过滤文件/文件名关键字(逗号分隔)">
+                                                    <HBox.margin>
+                                                        <Insets bottom="5.0" left="10.0"/>
+                                                    </HBox.margin>
+                                                    <padding>
+                                                        <Insets bottom="5.0"/>
+                                                    </padding>
+                                                </TextField>
+                                            </HBox>
+                                            <TextArea fx:id="treeText" prefHeight="547.0" prefWidth="885.0">
+                                            </TextArea>
+                                        </VBox>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
             </items>
         </SplitPane>
     </center>

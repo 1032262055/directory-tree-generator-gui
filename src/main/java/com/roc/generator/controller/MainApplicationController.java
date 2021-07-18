@@ -2,7 +2,7 @@ package com.roc.generator.controller;
 
 import com.roc.generator.util.AlertUtil;
 import com.roc.generator.util.DirectoryTree;
-import com.roc.generator.util.FilterUtil;
+import com.roc.generator.util.FileFilterImpl;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -16,6 +16,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.Objects;
 
 /**
  * Created by Roc on 2018-10-05
@@ -24,13 +25,20 @@ public class MainApplicationController {
 
     @FXML
     private TextField projectFolderField;
-
+    @FXML
+    private TextField filterTextField;
     @FXML
     private TextArea treeText;
 
     private Stage primaryStage;
 
     File selectedFolder = null;
+
+    private String[] keyArr;
+    /**
+     * 保存上次文件名
+     */
+    private String lastFileName;
 
     @FXML
     public void chooseProjectFolder() {
@@ -48,12 +56,32 @@ public class MainApplicationController {
             AlertUtil.showErrorAlert(result);
             return;
         }
+        //重新获取过滤文件内容，应对首次生成情况
+        String fieldStr = filterTextField.getText();
+        if (StringUtils.isNotBlank(fieldStr)) {
+            keyArr = fieldStr.contains("，") ? fieldStr.split("，") : fieldStr.split(",");
+        }
+        this.doGenerate(new FileFilterImpl(keyArr));
+    }
+
+    /**
+     * 生成逻辑
+     *
+     * @param fileFilter
+     */
+    private void doGenerate(FileFilter fileFilter) {
+        String text = projectFolderField.getText();
+        if (Objects.isNull(selectedFolder) && StringUtils.isBlank(text)) {
+            AlertUtil.showErrorAlert("请选择目录！");
+            return;
+        }
+        String path = Objects.isNull(selectedFolder) ? text : selectedFolder.getPath();
         //将路径中的\替换成/
-        String path = selectedFolder.getPath().replaceAll("\\\\", "/");
-        final File generateFile = new File(path);
+        String filePath = path.replaceAll("\\\\", "/");
+        final File generateFile = new File(filePath);
         final String generate = DirectoryTree.create(generateFile)
                 .setDeep(20)
-                .setFileFilter(FilterUtil.getFileFilter())
+                .setFileFilter(fileFilter)
                 .generate(generateFile);
         treeText.setText(generate);
     }
@@ -69,7 +97,7 @@ public class MainApplicationController {
     private String validateConfig() {
         String projectFolder = projectFolderField.getText();
         if (StringUtils.isEmpty(projectFolder)) {
-            return "目录不能为空!";
+            return "请选择文件目录!";
         }
         return null;
     }
@@ -82,5 +110,17 @@ public class MainApplicationController {
         clipboard.setContents(transferable, null);
         //复制成功提示
         AlertUtil.showInfoAlert("");
+    }
+
+    /**
+     * 获取过滤字段
+     */
+    @FXML
+    public void filterField() {
+        String fieldStr = filterTextField.getText();
+        if (StringUtils.isNotBlank(fieldStr)) {
+            keyArr = fieldStr.contains("，") ? fieldStr.split("，") : fieldStr.split(",");
+            this.generateCode();
+        }
     }
 }
